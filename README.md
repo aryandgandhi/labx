@@ -24,9 +24,9 @@ cd labx
 
 Create a virtual environment named `venv`:
 
-bash
 
-Copy code
+
+
 
 `python3 -m venv venv`
 
@@ -34,17 +34,17 @@ Copy code
 
 -   On macOS/Linux:
 
-    bash
+    
 
-    Copy code
+    
 
     `source venv/bin/activate`
 
 -   On Windows:
 
-    bash
+    
 
-    Copy code
+    
 
     `venv\Scripts\activate`
 
@@ -52,9 +52,9 @@ Copy code
 
 With the virtual environment activated, install the required Python packages:
 
-bash
 
-Copy code
+
+
 
 `pip install -r requirements.txt`
 
@@ -66,18 +66,18 @@ If PostgreSQL is not installed on your system, follow these instructions:
 
 -   **macOS**:
 
-    bash
+    
 
-    Copy code
+    
 
     `brew install postgresql
     brew services start postgresql`
 
 -   **Linux**:
 
-    bash
+    
 
-    Copy code
+    
 
     `sudo apt-get install postgresql postgresql-contrib
     sudo service postgresql start`
@@ -88,9 +88,9 @@ If PostgreSQL is not installed on your system, follow these instructions:
 
 Open the PostgreSQL command line tool:
 
-bash
 
-Copy code
+
+
 
 `psql postgres`
 
@@ -98,7 +98,7 @@ Then create a new database and user:
 
 sql
 
-Copy code
+
 
 `CREATE DATABASE labsense;
 CREATE USER flask_user WITH PASSWORD 'yourpassword';
@@ -108,9 +108,9 @@ GRANT ALL PRIVILEGES ON DATABASE labsense TO flask_user;`
 
 Create a `.env` file in the root of the backend folder (`labx/`) with the following contents:
 
-bash
 
-Copy code
+
+
 
 `DATABASE_URL=postgresql://flask_user:yourpassword@localhost:5432/labsense
 SECRET_KEY=your_secret_key_here`
@@ -125,7 +125,7 @@ Modify the `app.py` to read the database URL from the `.env` file:
 
 python
 
-Copy code
+
 
 `from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
@@ -145,9 +145,9 @@ db = SQLAlchemy(app)`
 
 Run the following commands to set up the initial database structure:
 
-bash
 
-Copy code
+
+
 
 `flask db init
 flask db migrate -m "Initial migration."
@@ -157,9 +157,9 @@ flask db upgrade`
 
 With everything configured, start the Flask development server:
 
-bash
 
-Copy code
+
+
 
 `flask run`
 
@@ -171,9 +171,9 @@ The backend should now be running on `http://localhost:5000`.
 
 Change to the React frontend directory:
 
-bash
 
-Copy code
+
+
 
 `cd labsense-frontend`
 
@@ -181,9 +181,9 @@ Copy code
 
 Install the required Node.js packages:
 
-bash
 
-Copy code
+
+
 
 `npm install`
 
@@ -191,9 +191,9 @@ Copy code
 
 Run the React app:
 
-bash
 
-Copy code
+
+
 
 `npm start`
 
@@ -231,14 +231,14 @@ Additional Notes
 
     sql
 
-    Copy code
+    
 
     `DROP DATABASE labsense;
     CREATE DATABASE labsense;`
 
 -   Make sure to add `.env` to `.gitignore` to avoid pushing sensitive information to version control.
 
-Copy code
+
 
 4o
 
